@@ -1,0 +1,166 @@
+<html data-ng-app="testApp">
+
+<head>
+    <title>Details page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .left {
+        left: 0;
+        background-color: rgba(216, 231, 230, 0.53);
+    }
+
+    .right {
+        right: 0;
+        background-color: #D6E6DC;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .centered img {
+        width: 150px;
+        border-radius: 50%;
+    }
+</style>
+
+<body ng-controller="testController">
+    <div class="split left">
+        <h2 align="center">Enter Profile details</h2>
+        <form ng-submit="processForm()">
+            <table cellspacing="5px" cellpadding="5%" ;>
+                <tr>
+                    <td align="right">Email:</td>
+                    <td class="style1"><input type="text" ng-model="formData.email"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">First Name:</td>
+                    <td class="style1"><input type="text" ng-model="formData.firstName"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Last Name:</td>
+                    <td class="style1"><input type="text" ng-model="formData.lastName"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Display Name:</td>
+                    <td class="style1"><input type="text" ng-model="formData.displayName"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Description of meal preference:</td>
+                    <td class="style1"><input type="text" ng-model="formData.description"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Department:</td>
+                    <td class="style1"><input type="text" ng-model="formData.department"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Team:</td>
+                    <td class="style1"><input type="text" ng-model="formData.team"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" value="submit" class="btn btn-success btn-lg btn-block">
+                                <span class="glyphicon glyphicon-flash "></span> Submit
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div ng-model="formData.message ">{{formData.message}}</div>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    </form>
+
+
+    </div>
+
+    <div class="split right">
+        <h2 align="center">Retrive profile details</h2>
+        <p>Please enter the user id</p>
+        <form ng-submit="retriveForm()">
+            <table cellspacing="5px" cellpadding="5%" ;>
+                <tr>
+                    <td align="right">UserID:</td>
+                    <td class="style1"><input type="number" min="0" ng-minlength="1" ng-model="formData.userId"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" value="submit" class="btn btn-success btn-lg btn-block">
+                                <span class="glyphicon glyphicon-flash "></span> Submit
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            
+                    <ui>                        
+                            <li>Email:{{response.data.email}}</li>
+                       
+
+                    </ui>
+
+                
+                    <ui>
+                        <li>First Name:{{response.data.firstName}}</li>
+                    </ui>
+
+               
+                    <ui>
+                            <li>Last Name:{{response.data.lastName}}</li>
+                    </ui>
+
+                
+                    <ui>
+                            <li>Display Name:{{response.data.displayName}}</li>
+                    </ui>
+                
+                    <ui>
+                            <li>Description of meal preference:{{response.data.description}}</li>
+                    </ui>
+                
+                    <ui>
+                            <li>Department:{{response.data.department}}</li>
+                    </ui>
+                
+                    <ui>
+                            <li>Team:{{response.data.team}}</li>
+                    </ui>
+               
+            </table>
+        </form>
+    </div>
+
+    <script src="script.js "></script>
+</body>
+
+</html>
